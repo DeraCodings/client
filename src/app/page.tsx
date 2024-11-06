@@ -8,6 +8,7 @@
 // import ThirdSection from "./Home page/ThirdSection";
 
 import { baseURL } from "./blog/page";
+import Link from "next/link";
 import HeroSection from "./components/home page components/Hero";
 import MeetTheCoach from "./components/home page components/MeetTheCoach";
 import Testimonial from "./components/home page components/Testimonial";
@@ -16,6 +17,8 @@ import axios from "axios";
 import TrainingPrograms from "./components/home page components/TrainingPrograms";
 import WhyChooseUs from "./components/home page components/WhyChooseUs";
 import ClosingSection from "./components/home page components/ClosingSection";
+import { FaArrowRight } from "react-icons/fa6";
+import SliderComponent from "./components/home page components/Slider";
 
 // export default function Home() {
 //   return (
@@ -246,7 +249,9 @@ export default async function Home() {
                 b["__typename"] === "ComponentComponentsTestimonials"
             )
           ) {
-            return <div key="testimonials-container">{testimonials}</div>;
+            return (
+              <SliderComponent key="testimonial-component">{testimonials}</SliderComponent>
+            );
           }
           return null;
         }
@@ -271,7 +276,22 @@ export default async function Home() {
             )
           ) {
             return (
-              <div key="training-programs-container">{trainingPrograms}</div>
+              <div key="training-programs-container" className="h-screeen flex items-center justify-center max-h-full">
+                <div>
+                  <div className="flex flex-col justify-around items-center md:flex-row">
+                    <h2 className="text-2xl text-green-600 font-bold">
+                      Our Training Programs
+                    </h2>
+                    <div className="flex items-center gap-4 hover:text-green-600">
+                      <Link href="/training-programs">Explore more</Link>
+                      <FaArrowRight className="inline-block" />
+                    </div>
+                  </div>
+                  <div className="flex justify-around gap-4 items-center flex-wrap">
+                    {trainingPrograms}
+                  </div>
+                </div>
+              </div>
             );
           }
           return null;

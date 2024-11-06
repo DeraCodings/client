@@ -90,3 +90,11 @@ export function RendererForHomePage({
     paragraph: ({children}) => <p className="text-wrap w-[60ch] mb-4 leading-relaxed text-base text-justify md:w-full">{children}</p>
   }} />;
 }
+
+export function ThirdSectionRenderer({content}:{content: BlocksContent}) {
+  if (!content) return null;
+
+  return <BlocksRenderer content={content} blocks={{
+    paragraph: ({children}) => <p className="text-wrap text-justify mb-7 w-full md:w-4/5">{children}</p>
+  }} />
+}

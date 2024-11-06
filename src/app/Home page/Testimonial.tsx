@@ -9,7 +9,7 @@ import Image from "next/image";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { useState } from "react";
 
-const settings = {
+export const settings = {
   // dots: true,
   infinite: true,
   speed: 500,
