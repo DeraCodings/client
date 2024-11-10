@@ -11,7 +11,7 @@ function MeetTheCoach({ data }: { data: MeetTheCoachBlock }) {
       <div className="flex flex-col items-center justify-center gap-2 px-4 lg:mr-4 lg:col-span-3 lg:w-4/5">
         <h2 className="text-3xl text-green-600 font-extrabold">{data.title}</h2>
         <div className="mx-8">
-          <p>
+          <p className="text-xl md:text-base">
             Coach Manuel Dominguez is passionate about helping young girls
             succeed on the soccer field and in life. With over 15 years of
             experience coaching youth soccer, he brings both skill and heart to

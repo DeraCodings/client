@@ -276,7 +276,7 @@ export default async function Home() {
             )
           ) {
             return (
-              <div key="training-programs-container" className="h-screeen flex items-center justify-center max-h-full">
+              <div key="training-programs-container" className="mb-11 flex items-center justify-center max-h-full">
                 <div>
                   <div className="flex flex-col justify-around items-center md:flex-row">
                     <h2 className="text-2xl text-green-600 font-bold">

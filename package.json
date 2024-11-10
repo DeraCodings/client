@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
+    "@sendgrid/client": "^8.1.4",
+    "@sendgrid/mail": "^8.1.4",
     "@strapi/blocks-react-renderer": "^1.0.1",
     "@supabase/ssr": "^0.5.0",
     "@supabase/supabase-js": "^2.45.1",
@@ -27,6 +29,7 @@
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.23.8",
     "zustand": "^4.5.5"
   },
   "devDependencies": {

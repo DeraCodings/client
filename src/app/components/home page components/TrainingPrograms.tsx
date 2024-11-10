@@ -11,7 +11,7 @@ function TrainingPrograms({data}: {data: TrainingProgramBlock}) {
   const imageUrl = `${baseURL}${data.trainingImage.url}`;
 
   return (
-    <div>
+    <div className="">
       <div className="bg-blue-500 w-[400px] my-3 relative">
         <Image alt={data.trainingImage.alternativeText} src={imageUrl} width={300} height={500} className="object-cover w-full h-full" />
         <h3 className="absolute bottom-2 text-center left-12 px-4 py-3 text-xl font-semibold text-white">{data.Title}</h3>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ClosingSectionBlock } from "../../page";
+import SubscriberForm from "./subscriberForm";
 
 function ClosingSection({ data }: { data: ClosingSectionBlock }) {
   console.log(data);
@@ -10,21 +11,8 @@ function ClosingSection({ data }: { data: ClosingSectionBlock }) {
           <h2 className="font-bold text-3xl">{data.firstText}</h2>
           <h2 className="font-bold text-3xl">{data.secondText}</h2>
         </div>
-        <div className="flex justify-center items-center mt-4">
-          <form action="" className="flex flex-col gap-3 md:gap-0 p-4 md:flex-row w-4/5">
-            <input
-              type="text"
-              placeholder="Enter your email..."
-              className="border w-full md:w-3/4 py-3 pl-2 rounded-lg rounded-l-lg block md:inline md:rounded-r-none focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="bg-green-600 text-white text-nowrap px-4 py-2 rounded-lg rounded-r-lg block md:rounded-l-none md:inline"
-            >
-              Get daily tips
-            </button>
-          </form>
-        </div>
+        <SubscriberForm />
+        {/* <iframe src="https://cdn.forms-content-1.sg-form.com/4c493d82-9ee6-11ef-b3ee-d6fa7671c82f"/> */}
       </div>
     </div>
   );

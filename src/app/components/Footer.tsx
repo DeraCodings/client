@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import {
@@ -7,11 +8,18 @@ import {
   FaTwitter,
 } from "react-icons/fa6";
 
-function Footer() {
+function Footer({ imageUrl, alternativeText }) {
   return (
     <footer className="px-9 py-8 dark-blue">
       <div className="flex flex-col gap-5 items-center mt-5 lg:flex-row lg:justify-between font-bold">
-        <h1 className="text-2xl text-center">LOGO</h1>
+        <Link href="/">
+          <Image
+            alt={alternativeText}
+            src={imageUrl}
+            height={150}
+            width={150}
+          />
+        </Link>
         <p className="text-center">
           Investment in yourself is the best investmentyou can make. <br />
           Invest in your soccer career today.
@@ -44,8 +52,18 @@ function Footer() {
         </div>
         <div>
           <p className="text-center">resources</p>
-          <Link href="/blog" className="block font-light hover:opacity-40 text-sm">Blog</Link>
-          <Link href="/training-programs" className="block font-light hover:opacity-40 text-sm">Training programs</Link>
+          <Link
+            href="/blog"
+            className="block font-light hover:opacity-40 text-sm"
+          >
+            Blog
+          </Link>
+          <Link
+            href="/training-programs"
+            className="block font-light hover:opacity-40 text-sm"
+          >
+            Training programs
+          </Link>
         </div>
       </div>
     </footer>

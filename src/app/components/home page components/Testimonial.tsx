@@ -24,7 +24,7 @@ function Testimonial({ data }: { data: TestimonialBlock }) {
           {`(${data.position}, ${data.club})`}
         </h4>
       </div>
-      <p className="w-4/5 mx-auto text-center">{data.quote}</p>
+      <p className="w-4/5 mx-auto text-center text-xl md:text-base">{data.quote}</p>
     </div>
   );
 }
