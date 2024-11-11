@@ -17,7 +17,7 @@ export interface BlogPost {
 import Image from "next/image";
 import Link from "next/link";
 
-export const baseURL = "http://127.0.0.1:1337";
+export const baseURL = process.env.NEXT_BASE_URL;
 
 async function getPosts() {
   const path = "/api/blog-posts";
