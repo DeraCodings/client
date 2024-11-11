@@ -2,12 +2,8 @@
 
 import { z } from "zod";
 import sgMail from "@sendgrid/mail";
-import client from "@sendgrid/client";
-import sendgridClient from "@sendgrid/client";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-client.setApiKey(process.env.SENDGRID_API_KEY);
-sendgridClient.setApiKey(process.env.SENDGRID_API_KEY);
 
 const contactFormSchema = z.object({
   name: z.string().trim().min(1, { message: "Name field is required" }),
