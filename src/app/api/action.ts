@@ -116,3 +116,26 @@ export async function subscribeToNewsletter(
   //     };
   //   });
 }
+
+export async function fetchLogo() {
+  const path = `/api/logo`;
+
+  const url = new URL(path, "http://127.0.0.1:1337");
+
+  console.log(url);
+
+  url.searchParams.append("populate", "logo");
+
+  const res = await fetch(url, { cache: "no-cache" });
+  // let res:any;
+  // if (process.env.NODE_ENV !== 'production') {
+  //   // Skip fetch calls or use mock data
+  // } else {
+  //   res = await fetch(`${url}/api/logo`, {cache: "no-cache"});
+  // }
+  // if (!res?.ok) throw new Error("Failed to fetch image");
+
+  const data = res.json();
+
+  return data;
+}

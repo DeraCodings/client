@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import { Metadata } from "next";
 import Header from "./components/Header";
+import { fetchLogo } from "./api/action";
 // import { baseURL } from "./blog/page";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -11,21 +12,6 @@ export const metadata: Metadata = {
   title: "Coach Dominguez-home page",
   description: "Home page of Coach Dominguez website",
 };
-
-export async function fetchLogo() {
-  const path = `/api/logo`;
-
-  const url = new URL(path, process.env.NEXT_BASE_URL);
-
-  url.searchParams.append("populate", "logo");
-
-  const res = await fetch(url, { cache: "no-cache" });
-  if (!res.ok) throw new Error("Failed to fetch image");
-
-  const data = res.json();
-
-  return data;
-}
 
 export default async function RootLayout({ children }) {
   const logoData = await fetchLogo();

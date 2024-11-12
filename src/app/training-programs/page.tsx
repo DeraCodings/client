@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { baseURL } from "../blog/page";
+// import { baseURL } from "../blog/page";
 import Link from "next/link";
 
 export interface TrainingProgram {
@@ -18,7 +18,7 @@ export interface TrainingProgram {
 async function getTrainingPrograms() {
   const path = "/api/training-programs";
 
-  const url = new URL(path, baseURL);
+  const url = new URL(path, process.env.NEXT_BASE_URL);
 
   url.searchParams.append("populate", "coverImage");
 
@@ -50,7 +50,7 @@ async function TrainingProgramsPage() {
                 <Image
                   width={400}
                   height={500}
-                  src={`${baseURL}${program.coverImage.url}`}
+                  src={`${process.env.NEXT_BASE_URL}${program.coverImage.url}`}
                   alt={program.coverImage.alternativeText}
                   className="rounded-t-md"
                 />

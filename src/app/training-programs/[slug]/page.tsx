@@ -1,5 +1,5 @@
 import { BlocksContent } from "@strapi/blocks-react-renderer";
-import { baseURL } from "../../blog/page";
+// import { baseURL } from "../../blog/page";
 import { TrainingProgram } from "../page";
 import Image from "next/image";
 import BlockRendererClient, { BlockRendererClientUpdatedParagraph } from "../../components/resuable components/BlockRendererClient";
@@ -9,9 +9,24 @@ import Link from "next/link";
 
 async function getTrainingProgramBySlug(slug: string) {
   const res = await fetch(
-    `${baseURL}/api/training-programs?filters[slug][$eq]=${slug}&populate=coverImage`,
+    `${process.env.NEXT_BASE_URL}/api/training-programs?filters[slug][$eq]=${slug}&populate=coverImage`,
     { cache: "no-cache" }
   );
+
+  // let res:any;
+  
+  // if (process.env.NODE_ENV !== 'production') {
+  //   // Skip fetch calls or use mock data
+  //   return {
+  //     data: "mock data"
+  //   }
+  // } else {
+  //   res = await fetch(
+  //     `${process.env.NEXT_BASE_URL}/api/training-programs?filters[slug][$eq]=${slug}&populate=coverImage`,
+  //     { cache: "no-cache" }
+  //   );
+  // }
+  
   if (!res.ok) throw new Error("Failed to fetch the post");
 
   const trainingProgramData = await res.json();
@@ -34,7 +49,7 @@ async function TrainingProgramPage({ params }) {
             <Image
               width={650}
               height={300}
-              src={`${baseURL}${trainingProgram[0].coverImage.url}`}
+              src={`${process.env.NEXT_BASE_URL}${trainingProgram[0].coverImage.url}`}
               alt={trainingProgram[0].coverImage.alternativeText}
               className="w-[350px] h-auto md:w-[650px]"
             />
