@@ -3,7 +3,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import { Metadata } from "next";
 import Header from "./components/Header";
-import { baseURL } from "./blog/page";
+// import { baseURL } from "./blog/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export async function fetchLogo() {
   const path = `/api/logo`;
 
-  const url = new URL(path, baseURL);
+  const url = new URL(path, process.env.NEXT_BASE_URL);
 
   url.searchParams.append("populate", "logo");
 
@@ -31,7 +31,7 @@ export default async function RootLayout({ children }) {
   const logoData = await fetchLogo();
   
   const logo = logoData.data.logo;
-  const imageUrl = `${baseURL}${logo.url}`;
+  const imageUrl = `${process.env.NEXT_BASE_URL}${logo.url}`;
 
   console.log(imageUrl);
   return (

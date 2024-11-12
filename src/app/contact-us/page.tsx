@@ -1,10 +1,10 @@
 
-import { baseURL } from "../blog/page";
+// import { baseURL } from "../blog/page";
 import Image from "next/image";
 import ContactForm from "./contactForm";
 
 interface contactPageData {}
-const api = `${baseURL}/graphql`;
+const api = `${process.env.NEXT_BASE_URL}/graphql`;
 
 const query = `query{
 contactUs {
@@ -47,7 +47,7 @@ async function ContactUsPage() {
   const contactPageData = contactData.data.contactUs.content;
 
   const imageData = contactPageData[0].image;
-  const imageUrl = `${baseURL}${imageData.url}`;
+  const imageUrl = `${process.env.NEXT_BASE_URL}${imageData.url}`;
 
   return (
     <div className="min-h-fit max-h-full grid grid-cols-5 my-8 px-12">

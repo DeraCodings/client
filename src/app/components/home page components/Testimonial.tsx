@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { TestimonialBlock } from "../../page";
-import { baseURL } from "../../blog/page";
+// import { baseURL } from "../../blog/page";
 
 function Testimonial({ data }: { data: TestimonialBlock }) {
   // console.log(data);
-  const imageUrl = `${baseURL}${data.playerImage.url}`
+  const imageUrl = `${process.env.NEXT_BASE_URL}${data.playerImage.url}`
   return (
     <div className="w-1/2 lg:shadow-none">
       <div className="w-[150px] h-[150px] rounded-full mx-auto">

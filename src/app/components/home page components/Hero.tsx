@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { HeroSectionBlock } from "../../page";
-import { baseURL } from "../../blog/page";
+// import { baseURL } from "../../blog/page";
 import { Text } from "../../Home page/HeroSection";
 
 function HeroSection({ data }: { data: HeroSectionBlock }) {
-  const imageUrl = `${baseURL}${data.backgroundImage.url}`;
+  const imageUrl = `${process.env.NEXT_BASE_URL}${data.backgroundImage.url}`;
 
   return (
     <div

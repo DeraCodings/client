@@ -1,10 +1,9 @@
 import Image from "next/image";
-import { baseURL } from "../../blog/page";
+// import { baseURL } from "../../blog/page";
 import { MeetTheCoachBlock } from "../../page";
-import { RendererForHomePage } from "../resuable components/BlockRendererClient";
 
 function MeetTheCoach({ data }: { data: MeetTheCoachBlock }) {
-  const imageUrl = `${baseURL}${data.coachImage.url}`;
+  const imageUrl = `${process.env.NEXT_BASE_URL}${data.coachImage.url}`;
   // console.log(data.description);
   return (
     <div className="grid grid-cols-1 gap-8 h-full place-items-center mt-32 py-8 mb-16 lg:h-screen lg:grid-cols-5 lg:pr-16 lg:pl-4">
@@ -16,7 +15,7 @@ function MeetTheCoach({ data }: { data: MeetTheCoachBlock }) {
             succeed on the soccer field and in life. With over 15 years of
             experience coaching youth soccer, he brings both skill and heart to
             every session. Manuel believes that soccer is more than just a
-            game—it’s a powerful way to build confidence, teamwork, and
+            game—it&apos;s a powerful way to build confidence, teamwork, and
             resilience. 
             <br /><br />
             His approach is all about creating a positive,

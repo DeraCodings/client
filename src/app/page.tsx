@@ -7,7 +7,7 @@
 // import Testimonial from "./Home page/Testimonial";
 // import ThirdSection from "./Home page/ThirdSection";
 
-import { baseURL } from "./blog/page";
+// import { baseURL } from "./blog/page";
 import Link from "next/link";
 import HeroSection from "./components/home page components/Hero";
 import MeetTheCoach from "./components/home page components/MeetTheCoach";
@@ -212,7 +212,7 @@ async function getHomePageData(): Promise<HomePageData> {
 
   const path = "/graphql";
 
-  const res = await axios.post(`${baseURL}${path}`, {
+  const res = await axios.post(`${process.env.NEXT_BASE_URL}${path}`, {
     query: graphqlQuery,
   });
 
