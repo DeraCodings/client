@@ -4,12 +4,13 @@ import { TrainingProgram } from "../page";
 import Image from "next/image";
 import BlockRendererClient, { BlockRendererClientUpdatedParagraph } from "../../components/resuable components/BlockRendererClient";
 import Link from "next/link";
+import { baseURL } from "../../page";
 
 // const updateParagraph = ({children}) => <p className="w-[75ch]">{children}</p>
 
 async function getTrainingProgramBySlug(slug: string) {
   const res = await fetch(
-    `${process.env.NEXT_BASE_URL}/api/training-programs?filters[slug][$eq]=${slug}&populate=coverImage`,
+    `${baseURL}/api/training-programs?filters[slug][$eq]=${slug}&populate=coverImage`,
     { cache: "no-cache" }
   );
 
@@ -39,7 +40,8 @@ async function TrainingProgramPage({ params }) {
   );
   console.log(trainingProgram);
 
-  const content: BlocksContent = trainingProgram[0].description;
+  // const content: BlocksContent = trainingProgram[0].description;
+  const content = trainingProgram[0].description;
 
   return (
     <div className="">
@@ -49,13 +51,14 @@ async function TrainingProgramPage({ params }) {
             <Image
               width={650}
               height={300}
-              src={`${process.env.NEXT_BASE_URL}${trainingProgram[0].coverImage.url}`}
+              src={`${baseURL}${trainingProgram[0].coverImage.url}`}
               alt={trainingProgram[0].coverImage.alternativeText}
               className="w-[350px] h-auto md:w-[650px]"
             />
           </div>
           {/* <BlockRendererClientUpdatedParagraph content={content} /> */}
-          <BlockRendererClient content={content} />
+          {/* <BlockRendererClient content={content} /> */}
+          <p>{content}</p>
           <div className="my-8">
             <Link
               href="#"

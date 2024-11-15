@@ -120,7 +120,7 @@ export async function subscribeToNewsletter(
 export async function fetchLogo() {
   const path = `/api/logo`;
 
-  const url = new URL(path, "http://127.0.0.1:1337");
+  const url = new URL(path, "https://strapi-app-rtmr.onrender.com");
 
   console.log(url);
 

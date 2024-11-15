@@ -30,6 +30,7 @@ yarn-error.log*
 
 #secrets
 .env
+.env.production
 
 # vercel
 .vercel

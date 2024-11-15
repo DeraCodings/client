@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/blog/layout.js", "src/app/training-programs/layout.js"  ],
+, "src/app/blog/layout.tsx", "src/app/training-programs/layout.js"  ],
   "exclude": [
     "node_modules"
   ]

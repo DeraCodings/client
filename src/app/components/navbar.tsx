@@ -78,10 +78,10 @@ function NavBar({imageUrl, alternativeText}) {
         <div className="py-8 pl-6 rounded-lg absolute w-full left-0 border top-10 bg-white text-black">
           <ul className="flex flex-col gap-8">
             <li className="hover:text-green-600 hover:underline font-bold">
-              <Link href="#">Contact Us</Link>
+              <Link href="/contact-us">Contact Us</Link>
             </li>
             <li className="hover:text-green-600 hover:underline font-bold">
-              <Link href="#">Blog</Link>
+              <Link href="/blog">Blog</Link>
             </li>
             <li className="hover:text-green-600 hover:underline font-bold">
               <Link href="/training-programs">Training programs</Link>
@@ -130,7 +130,7 @@ function NavBar({imageUrl, alternativeText}) {
         <div className="absolute top-10 left-2/4 pr-5 border-2 border-gray-200 shadow-xl rounded-lg">
           <ul className="flex flex-col gap-5 py-5 pl-5">
             <li className="hover:font-bold hover:underline hover:text-blue-700">
-              <Link href="#">Blog</Link>
+              <Link href="/blog">Blog</Link>
             </li>
             <li className="hover:font-bold hover:underline hover:text-blue-700">
               <Link href="#">Case studies</Link>

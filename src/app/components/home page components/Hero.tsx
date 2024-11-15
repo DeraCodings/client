@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { HeroSectionBlock } from "../../page";
+import { baseURL, HeroSectionBlock } from "../../page";
 // import { baseURL } from "../../blog/page";
 import { Text } from "../../Home page/HeroSection";
 
 function HeroSection({ data }: { data: HeroSectionBlock }) {
-  const imageUrl = `${process.env.NEXT_BASE_URL}${data.backgroundImage.url}`;
+  const imageUrl = `${baseURL}${data.backgroundImage.url}`;
 
   return (
     <div
@@ -18,7 +18,7 @@ function HeroSection({ data }: { data: HeroSectionBlock }) {
         <Text
           title={data.title}
           subtitle={data.subtitle}
-          url={data.CTA.url}
+          url="/book-session"
           cta={data.CTA.text}
         />
       </div>

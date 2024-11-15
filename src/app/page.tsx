@@ -86,6 +86,8 @@ import SliderComponent from "./components/home page components/Slider";
 //   );
 // }
 
+export const baseURL = "https://strapi-app-rtmr.onrender.com";
+
 export interface Image {
   alternativeText: string;
   url: string;
@@ -99,7 +101,6 @@ export interface HeroSectionBlock {
   backgroundImage: Image;
   CTA: {
     text: string;
-    url: string;
   };
 }
 
@@ -122,13 +123,13 @@ export interface TestimonialBlock {
 export interface TrainingProgramBlock {
   __typename: "ComponentComponentsTrainingProgram";
   Title: string;
-  trainingImage: Image;
+  programImage: Image;
 }
 
 export interface WhyChooseUsBlock {
   __typename: "ComponentComponentsWhyChooseUs";
   content: string;
-  reasonSectionImage: Image;
+  image: Image;
 }
 
 export interface ClosingSectionBlock {
@@ -152,67 +153,124 @@ interface HomePageData {
 }
 
 async function getHomePageData(): Promise<HomePageData> {
+  // const graphqlQuery = `
+  //     query{
+  //   homePage {
+  //     blocks{
+  //       __typename
+  //       ... on ComponentComponentsHeroSection{
+  //         title
+  //         subtitle
+  //         backgroundImage {
+  //           alternativeText
+  //           url
+  //         }
+  //         CTA {
+  //           text
+  //           url
+  //         }
+  //       }
+  //       ... on ComponentComponentsMeetTheCoach{
+  //         title
+  //         coachImage:image {
+  //           alternativeText
+  //           url
+  //         }
+  //         description
+  //       }
+  //       ... on ComponentComponentsTrainingProgram{
+  //         Title
+  //         trainingImage:image {
+  //           alternativeText
+  //           url
+  //         }
+  //       }
+  //       ... on ComponentComponentsTestimonials{
+  //         playerImage:image {
+  //           alternativeText
+  //           url
+  //         }
+  //         club
+  //         player
+  //         position
+  //         quote
+  //       }
+  //       ... on ComponentComponentsWhyChooseUs{
+  //         content
+  //         reasonSectionImage:image {
+  //           alternativeText
+  //           url
+  //         }
+  //       }
+  //       ... on ComponentComponentsClosingSection{
+  //         firstText
+  //         secondText
+  //       }
+  //     }
+  //   }
+  // }
+  //   `;
+
   const graphqlQuery = `
-      query{
-    homePage {
-      blocks{
-        __typename
-        ... on ComponentComponentsHeroSection{
-          title
-          subtitle
-          backgroundImage {
-            alternativeText
-            url
-          }
-          CTA {
-            text
-            url
-          }
+  query homePage {
+  homePage {
+    blocks {
+      __typename
+      ... on ComponentComponentsHeroSection {
+        title
+        subtitle
+        backgroundImage {
+          alternativeText
+          url
         }
-        ... on ComponentComponentsMeetTheCoach{
-          title
-          coachImage:image {
-            alternativeText
-            url
-          }
-          description
+        CTA {
+          text
         }
-        ... on ComponentComponentsTrainingProgram{
-          Title
-          trainingImage:image {
-            alternativeText
-            url
-          }
+      }
+      ... on ComponentComponentsMeetTheCoach {
+        title
+        coachImage:image {
+          alternativeText
+          url
         }
-        ... on ComponentComponentsTestimonials{
-          playerImage:image {
-            alternativeText
-            url
-          }
-          club
-          player
-          position
-          quote
+        description
+      }
+      ... on ComponentComponentsTrainingProgram {
+        Title
+        programImage:image {
+          alternativeText
+          url
         }
-        ... on ComponentComponentsWhyChooseUs{
-          content
-          reasonSectionImage:image {
-            alternativeText
-            url
-          }
+      }
+      ... on ComponentComponentsTestimonials {
+        playerImage:image {
+          alternativeText
+          url
         }
-        ... on ComponentComponentsClosingSection{
-          firstText
-          secondText
+        club
+        player
+        position
+        quote
+      }
+      ... on ComponentComponentsWhyChooseUs {
+        content
+        image {
+          alternativeText
+          url
         }
+      }
+      ... on ComponentComponentsClosingSection {
+        firstText
+        secondText
       }
     }
   }
-    `;
+}
+  `;
 
   const path = "/graphql";
 
-  const res = await axios.post(`${process.env.NEXT_BASE_URL}${path}`, {
+  const res = await axios.post(`${baseURL}${path}`, {
     query: graphqlQuery,
   });
 
@@ -250,7 +308,9 @@ export default async function Home() {
             )
           ) {
             return (
-              <SliderComponent key="testimonial-component">{testimonials}</SliderComponent>
+              <SliderComponent key="testimonial-component">
+                {testimonials}
+              </SliderComponent>
             );
           }
           return null;
@@ -276,7 +336,10 @@ export default async function Home() {
             )
           ) {
             return (
-              <div key="training-programs-container" className="mb-11 flex items-center justify-center max-h-full">
+              <div
+                key="training-programs-container"
+                className="mb-11 flex items-center justify-center max-h-full"
+              >
                 <div>
                   <div className="flex flex-col justify-around items-center md:flex-row">
                     <h2 className="text-2xl text-green-600 font-bold">

@@ -3,10 +3,11 @@ import { type BlocksContent } from "@strapi/blocks-react-renderer";
 import { BlogPost } from "../page";
 import BlockRendererClient from "../../components/resuable components/BlockRendererClient";
 import Image from "next/image";
+import { baseURL } from "../../page";
 
 async function fetchPostBySlug(slug: string) {
   const res = await fetch(
-    `${process.env.NEXT_BASE_URL}/api/blog-posts?filters[slug][$eq]=${slug}&populate=coverImage`,
+    `${baseURL}/api/blog-posts?filters[slug][$eq]=${slug}&populate=coverImage`,
     { cache: "no-cache" }
   );
   if (!res.ok) throw new Error("Failed to fetch the post");
@@ -41,7 +42,7 @@ async function BlogPage({ params }) {
           <Image
             width={1240}
             height={396}
-            src={`${process.env.NEXT_BASE_URL}${post[0].coverImage.url}`}
+            src={`${baseURL}${post[0].coverImage.url}`}
             alt={post[0].coverImage.alternativeText}
             className="w-[700px] md:w-[1240px] block my-6"
           />

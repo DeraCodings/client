@@ -16,13 +16,14 @@ export interface BlogPost {
 
 import Image from "next/image";
 import Link from "next/link";
+import { baseURL } from "../page";
 
 // export const baseURL = process.env.NEXT_BASE_URL;
 
 async function getPosts() {
   const path = "/api/blog-posts";
 
-  const url = new URL(path, process.env.NEXT_BASE_URL);
+  const url = new URL(path, baseURL);
 
   url.searchParams.append("populate", "coverImage");
 
@@ -66,7 +67,7 @@ async function BlogPage() {
             className="shadow-xl rounded-xl w-[300px] h-[320px] my-6"
           >
             <Image
-              src={`${process.env.NEXT_BASE_URL}${post.coverImage.url}`}
+              src={`${baseURL}${post.coverImage.url}`}
               alt={post.coverImage.alternativeText}
               width={300}
               height={300}
