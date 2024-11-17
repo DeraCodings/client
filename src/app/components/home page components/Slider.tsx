@@ -6,12 +6,18 @@ import "slick-carousel/slick/slick-theme.css";
 import { settings } from "../../Home page/Testimonial";
 import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import { Nunito_Sans } from "next/font/google";
+
+const nunitoSans = Nunito_Sans({
+  weight: "500",
+  subsets: ["latin"]
+});
 
 function SliderComponent({ children }) {
   const [sliderRef, setSliderRef] = useState(null);
   return (
     <div className="px-16 my-auto h-full py-16">
-      <h2 className="text-2xl text-green-600 text-center font-bold mb-4">
+      <h2 className="text-2xl text-green-600 text-center font-bold mb-4" style={{fontFamily: `${nunitoSans.style.fontFamily}`, fontWeight: `${nunitoSans.style.fontWeight}`}}>
         What players are saying about us
       </h2>
       <div className="slider-container">

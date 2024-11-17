@@ -55,7 +55,7 @@ export default function BlockRendererClient({
           );
         },
         paragraph: ({ children }) => (
-          <p className="max-w-[130ch] text-justify my-3">{children}</p>
+          <p className="max-w-[500px] lg:max-w-[130ch] text-wrap lg:text-justify my-3">{children}</p>
         ),
         heading: ({ children, level }) => {
           switch (level) {

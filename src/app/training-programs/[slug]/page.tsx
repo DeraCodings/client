@@ -1,32 +1,14 @@
-import { BlocksContent } from "@strapi/blocks-react-renderer";
-// import { baseURL } from "../../blog/page";
 import { TrainingProgram } from "../page";
 import Image from "next/image";
-import BlockRendererClient, { BlockRendererClientUpdatedParagraph } from "../../components/resuable components/BlockRendererClient";
 import Link from "next/link";
 import { baseURL } from "../../page";
 
-// const updateParagraph = ({children}) => <p className="w-[75ch]">{children}</p>
 
 async function getTrainingProgramBySlug(slug: string) {
   const res = await fetch(
     `${baseURL}/api/training-programs?filters[slug][$eq]=${slug}&populate=coverImage`,
     { cache: "no-cache" }
   );
-
-  // let res:any;
-  
-  // if (process.env.NODE_ENV !== 'production') {
-  //   // Skip fetch calls or use mock data
-  //   return {
-  //     data: "mock data"
-  //   }
-  // } else {
-  //   res = await fetch(
-  //     `${process.env.NEXT_BASE_URL}/api/training-programs?filters[slug][$eq]=${slug}&populate=coverImage`,
-  //     { cache: "no-cache" }
-  //   );
-  // }
   
   if (!res.ok) throw new Error("Failed to fetch the post");
 
@@ -40,7 +22,6 @@ async function TrainingProgramPage({ params }) {
   );
   console.log(trainingProgram);
 
-  // const content: BlocksContent = trainingProgram[0].description;
   const content = trainingProgram[0].description;
 
   return (
@@ -61,7 +42,7 @@ async function TrainingProgramPage({ params }) {
           <p>{content}</p>
           <div className="my-8">
             <Link
-              href="#"
+              href="/book-session"
               className="bg-green-600 text-white py-2 px-3 rounded-md text-center"
             >
               Start training today

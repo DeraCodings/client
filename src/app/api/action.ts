@@ -127,13 +127,8 @@ export async function fetchLogo() {
   url.searchParams.append("populate", "logo");
 
   const res = await fetch(url, { cache: "no-cache" });
-  // let res:any;
-  // if (process.env.NODE_ENV !== 'production') {
-  //   // Skip fetch calls or use mock data
-  // } else {
-  //   res = await fetch(`${url}/api/logo`, {cache: "no-cache"});
-  // }
-  // if (!res?.ok) throw new Error("Failed to fetch image");
+
+  if (!res.ok) throw new Error("An error occurred while displaying this page");
 
   const data = res.json();
 

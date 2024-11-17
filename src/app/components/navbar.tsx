@@ -75,7 +75,7 @@ function NavBar({imageUrl, alternativeText}) {
         </div>
       </nav>
       {isMenuOpen && (
-        <div className="py-8 pl-6 rounded-lg absolute w-full left-0 border top-10 bg-white text-black">
+        <div className="py-8 pl-6 rounded-lg absolute w-full left-0 border top-16 bg-white text-black">
           <ul className="flex flex-col gap-8">
             <li className="hover:text-green-600 hover:underline font-bold">
               <Link href="/contact-us">Contact Us</Link>

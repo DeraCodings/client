@@ -21,7 +21,7 @@ function Footer({ imageUrl, alternativeText }) {
           />
         </Link>
         <p className="text-center">
-          Investment in yourself is the best investmentyou can make. <br />
+          Investment in yourself is the best investment you can make. <br />
           Invest in your soccer career today.
         </p>
       </div>

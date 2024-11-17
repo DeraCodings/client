@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
 import { Metadata } from "next";
@@ -7,7 +7,12 @@ import { fetchLogo } from "./api/action";
 import { baseURL } from "./page";
 // import { baseURL } from "./blog/page";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+
+const poppins = Poppins({
+  weight: "300",
+  subsets: ["latin"]
+})
 
 export const metadata: Metadata = {
   title: "Home Page | Coach Dominguez",
@@ -16,14 +21,16 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }) {
   const logoData = await fetchLogo();
-  
+
   const logo = logoData.data.logo;
   const imageUrl = `${baseURL}${logo.url}`;
 
-  console.log(imageUrl);
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+        <link rel="icon" href="/football_icon.png" type="image/<generated>" sizes="any" />
+      </head>
+      <body className={poppins.className}>
         <Header imageUrl={imageUrl} alternativeText={logo.alternativeText} />
         <main className="">{children}</main>
         <Footer imageUrl={imageUrl} alternativeText={logo.alternativeText} />

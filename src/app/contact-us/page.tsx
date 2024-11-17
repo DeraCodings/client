@@ -38,6 +38,8 @@ async function fetchContactPageData() {
     cache: "no-cache",
   });
 
+  if(!res.ok) throw new Error("An error occurred while fetching the image");
+
   const data = await res.json();
 
   return data;

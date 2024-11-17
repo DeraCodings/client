@@ -23,9 +23,9 @@ function ContactForm({ contactPageData }) {
       <div>
         <div>
           <h2 className="text-3xl text-green-600 font-bold">
-            {contactPageData[1].headingText}
+            {contactPageData[1]?.headingText}
           </h2>
-          <p className="mb-4">{contactPageData[1].subtitle}</p>
+          <p className="mb-4">{contactPageData[1]?.subtitle}</p>
         </div>
         <div className="py-6">
           <form action={formAction}>

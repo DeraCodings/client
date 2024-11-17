@@ -1,13 +1,3 @@
-// import Header from "./components/Header";
-// import Footer from "./Home page/Footer";
-// import HeroSection from "./Home page/HeroSection";
-// import LastSection from "./Home page/LastSection";
-// import SecondSection from "./Home page/SecondSection";
-// // import PauseOnHover from "./components/Testimonial";
-// import Testimonial from "./Home page/Testimonial";
-// import ThirdSection from "./Home page/ThirdSection";
-
-// import { baseURL } from "./blog/page";
 import Link from "next/link";
 import HeroSection from "./components/home page components/Hero";
 import MeetTheCoach from "./components/home page components/MeetTheCoach";
@@ -19,72 +9,12 @@ import WhyChooseUs from "./components/home page components/WhyChooseUs";
 import ClosingSection from "./components/home page components/ClosingSection";
 import { FaArrowRight } from "react-icons/fa6";
 import SliderComponent from "./components/home page components/Slider";
+import { Nunito_Sans } from "next/font/google";
 
-// export default function Home() {
-//   return (
-//     <div className="relative">
-//       {/* <Header /> */}
-//       <HeroSection />
-//       {/* <div className="flex flex-col items-center">
-//         <PauseOnHover />
-//       </div> */}
-//       <SecondSection />
-//       <ThirdSection />
-//       <div>
-//         <Testimonial />
-//       </div>
-//       <LastSection />
-//       {/* <Footer /> */}
-//     </div>
-//   );
-// }
-
-// const getHomePageData = async () => {
-//   // const path = `/api/home-page?populate=deep`;
-//   const path =
-//     "/api/home-page?populate[blocks][populate][components.hero-section][fields][0]=backgroundImage";
-//   const res = await fetch(`${baseURL}${path}`);
-
-//   const data = res.json();
-
-//   return data;
-// };
-
-// export default async function Home() {
-//   const homePageData = await getHomePageData();
-//   console.log(homePageData.blocks);
-
-//   const blocks = homePageData.blocks;
-
-//   return (
-//     <div>
-//       {blocks.map((_, index:number) => {
-//       switch (blocks[index]["__typename"]) {
-//         case 'ComponentComponentsHeroSection':
-//           return <HeroSection key={blocks[index]["__typename"]} data={blocks[index]} />;
-
-//         case 'ComponentComponentsMeetTheCoach':
-//           return <MeetTheCoach key={blocks[index]["__typename"]} data={blocks[index]} />;
-
-//         case 'ComponentComponentsTestimonials':
-//           return <Testimonial key={blocks[index]["__typename"]} data={blocks[index]} />;
-
-//         case 'ComponentComponentsTrainingProgram':
-//           return <TrainingPrograms key={blocks[index]["__typename"]} data={blocks[index]} />
-
-//         case 'ComponentComponentsWhyChooseUs':
-//           return <WhyChooseUs key={blocks[index]["__typename"]} data={blocks[index]} />
-
-//         case 'ComponentComponentsClosingSection':
-//           return <ClosingSection key={blocks[index]["__typename"]} data={blocks[index]} />
-
-//         default:
-//           return null;
-//       }
-//     })}
-//     </div>
-//   );
-// }
+const nunitoSans = Nunito_Sans({
+  weight: "500",
+  subsets: ["latin"]
+});
 
 export const baseURL = "https://strapi-app-rtmr.onrender.com";
 
@@ -342,7 +272,7 @@ export default async function Home() {
               >
                 <div>
                   <div className="flex flex-col justify-around items-center md:flex-row">
-                    <h2 className="text-2xl text-green-600 font-bold">
+                    <h2 className="text-2xl text-green-600 font-bold" style={{fontFamily: `${nunitoSans.style.fontFamily}`, fontWeight: `${nunitoSans.style.fontWeight}`}}>
                       Our Training Programs
                     </h2>
                     <div className="flex items-center gap-4 hover:text-green-600">
