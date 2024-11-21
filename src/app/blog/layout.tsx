@@ -6,7 +6,7 @@ import { baseURL } from '../page'
 function BlogLayout({children}) {
   return (
     <div>
-      <main className="flex px-0">{children}</main>
+      <main className="flex pl-12 pr-0">{children}</main>
     </div>
   );
 }
