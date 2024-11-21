@@ -16,7 +16,7 @@ const nunitoSans = Nunito_Sans({
   subsets: ["latin"]
 });
 
-export const baseURL = "https://strapi-app-rtmr.onrender.com";
+export const baseURL = "https://server-jla8.onrender.com";
 
 export interface Image {
   alternativeText: string;

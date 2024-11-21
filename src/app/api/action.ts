@@ -2,6 +2,7 @@
 
 import { z } from "zod";
 import sgMail from "@sendgrid/mail";
+import { baseURL } from "../page";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -120,7 +121,7 @@ export async function subscribeToNewsletter(
 export async function fetchLogo() {
   const path = `/api/logo`;
 
-  const url = new URL(path, "https://strapi-app-rtmr.onrender.com");
+  const url = new URL(path, baseURL);
 
   console.log(url);
 
