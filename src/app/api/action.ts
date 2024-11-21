@@ -123,7 +123,7 @@ export async function fetchLogo() {
 
   const url = new URL(path, baseURL);
 
-  console.log(url);
+  // console.log(url);g
 
   url.searchParams.append("populate", "logo");
 

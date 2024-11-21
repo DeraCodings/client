@@ -20,7 +20,7 @@ async function TrainingProgramPage({ params }) {
   const trainingProgram: TrainingProgram = await getTrainingProgramBySlug(
     params.slug
   );
-  console.log(trainingProgram);
+  // console.log(trainingProgram);
 
   const content = trainingProgram[0].description;
 

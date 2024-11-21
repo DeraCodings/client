@@ -3,7 +3,7 @@ import { ClosingSectionBlock } from "../../page";
 import SubscriberForm from "./subscriberForm";
 
 function ClosingSection({ data }: { data: ClosingSectionBlock }) {
-  console.log(data);
+  // console.log(data);
   return (
     <div className="flex justify-center items-center bg-last-image h-screen bg-cover bg-center px-4 md:px-0">
       <div>

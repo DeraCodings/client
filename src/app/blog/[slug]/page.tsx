@@ -18,7 +18,7 @@ async function fetchPostBySlug(slug: string) {
 
 async function BlogPage({ params }) {
   const post: BlogPost = await fetchPostBySlug(params.slug);
-  console.log(post);
+  // console.log(post);
 
   const content: BlocksContent = post[0].content;
 

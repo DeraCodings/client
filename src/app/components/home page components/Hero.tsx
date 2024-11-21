@@ -12,7 +12,7 @@ function HeroSection({ data }: { data: HeroSectionBlock }) {
     <div
       className="h-screen flex justify-center items-center bg-hero-image"
       style={{
-        backgroundImage: `url(${imageUrl})`,
+        // backgroundImage: `url(${imageUrl})`,
         backgroundSize: "cover",
       }}
     >
