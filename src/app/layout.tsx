@@ -29,6 +29,8 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="icon" href="/football_icon.png" type="image/<generated>" sizes="any" />
+        <link rel="shortcut icon" href="/football_icon.png" type="image/x-icon" />
+        <meta name="theme-color" content="green" />
       </head>
       <body className={poppins.className}>
         <Header imageUrl={imageUrl} alternativeText={logo.alternativeText} />

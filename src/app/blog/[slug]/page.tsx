@@ -25,7 +25,7 @@ async function BlogPage({ params }) {
   return (
     <div>
       <main className="flex justify-center items-center pb-16 pt-8">
-        <div className="w-4/6">
+        <div className="w-full md:w-4/6 px-9 md:px-0">
           <h1 className="text-4xl font-extrabold">{post[0].title}</h1>
           <p className="my-4">
             <span className="font-semibold">

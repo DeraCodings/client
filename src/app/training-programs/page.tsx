@@ -34,7 +34,7 @@ async function getTrainingPrograms() {
 
 async function TrainingProgramsPage() {
   const trainingPrograms = await getTrainingPrograms();
-  console.log(trainingPrograms);
+  // console.log(trainingPrograms);
   return (
     <div className="min-h-screen max-h-full">
       <h1 className="text-center my-6 py-4 text-4xl text-green-600 font-extrabold">

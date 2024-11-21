@@ -26,7 +26,7 @@ async function TrainingProgramPage({ params }) {
 
   return (
     <div className="">
-      <main className="flex justify-center items-center px-11 py-11">
+      <main className="flex justify-center items-center px-6 py-11">
         <div>
           <div className="flex justify-center items-center mb-6">
             <Image
@@ -34,7 +34,7 @@ async function TrainingProgramPage({ params }) {
               height={300}
               src={`${baseURL}${trainingProgram[0].coverImage.url}`}
               alt={trainingProgram[0].coverImage.alternativeText}
-              className="w-[350px] h-auto md:w-[650px]"
+              className="w-auto h-auto md:w-[650px] aspect-auto"
             />
           </div>
           {/* <BlockRendererClientUpdatedParagraph content={content} /> */}
